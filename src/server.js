@@ -2,6 +2,8 @@ const express = require("express")
 const cors = require("cors")
 require("dotenv").config()
 
+const notesRouter = require("./routes/notes")
+
 const app = express()
 
 app.use(cors())
@@ -12,6 +14,8 @@ app.get("/", (req, res) => {
     message: "Virtual Board API is running"
   })
 })
+
+app.use("/notes", notesRouter)
 
 const PORT = process.env.PORT || 3000
 
