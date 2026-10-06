@@ -1,5 +1,5 @@
 const LOGIN_API = "https://womp1loginapi.onrender.com"
-const BOARD_API = "http://localhost:3000"
+const BOARD_API = "https://virtualboardapi.onrender.com"
 
 const loginView = document.getElementById("loginView")
 const boardView = document.getElementById("boardView")
