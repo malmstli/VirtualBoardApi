@@ -68,9 +68,9 @@ router.post("/", authenticateToken, async (req, res) => {
     const allowed = await hasBoardAccess(userId, boardId)
 
     if (!allowed) {
-    return res.status(403).json({
+      return res.status(403).json({
         message: "You do not have access to this board"
-    })
+      })
     }
 
     const note = await prisma.note.create({
@@ -91,7 +91,6 @@ router.post("/", authenticateToken, async (req, res) => {
   }
 })
 
-// PATCH note
 // PATCH note
 router.patch("/:id", authenticateToken, async (req, res) => {
   try {
@@ -116,9 +115,10 @@ router.patch("/:id", authenticateToken, async (req, res) => {
       })
     }
 
+    const { text, color, positionX, positionY } = req.body
     const note = await prisma.note.update({
       where: { id },
-      data: req.body
+      data: { text, color, positionX, positionY }
     })
 
     res.json(note)
