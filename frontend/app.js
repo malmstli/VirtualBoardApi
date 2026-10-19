@@ -47,7 +47,7 @@ async function login() {
       return
     }
 
-    localStorage.setItem("jwt", data.jwt)
+    localStorage.setItem("jwt", data.jwtAccess)
 
     loginView.classList.add("hidden")
     boardView.classList.remove("hidden")
